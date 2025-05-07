@@ -1,1 +1,24 @@
-<p>usermanagement works!</p>
+<app-sidebar>
+  <div class="container">
+    <h1>User Management</h1>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Manage Users</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-list>
+          <!-- <mat-list-item *ngFor="let user of users">
+            {{ user.name }} - {{ user.email }}
+            <button mat-icon-button color="warn" style="float: right;">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </mat-list-item> -->
+        </mat-list>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary">Add User</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</app-sidebar>
+
