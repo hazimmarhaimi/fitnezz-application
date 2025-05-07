@@ -6,6 +6,17 @@
   width: 200px;
   background-color: #f5f5f5;
   border-right: 1px solid rgba(0, 0, 0, 0.12);
+  transition: width 0.3s ease;
+
+  &.minimized {
+    width: 60px;
+  }
+}
+
+.sidenav-header {
+  padding: 10px;
+  display: flex;
+  justify-content: flex-end;
 }
 
 mat-nav-list {
@@ -21,9 +32,30 @@ mat-list-item {
 
 mat-icon {
   margin-right: 16px;
+
+  .minimized & {
+    margin-right: 0;
+  }
+}
+
+span {
+  flex: 1;
 }
 
 .active {
   background-color: #e8eaf6; /* Indigo light background for active item */
   color: #3f51b5; /* Indigo primary color */
+}
+.resize-handle {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 5px;
+  background-color: transparent;
+  cursor: ew-resize;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
 }

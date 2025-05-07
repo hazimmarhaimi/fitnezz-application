@@ -1,21 +1,4 @@
-.container {
-  padding: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: calc(100vh - 64px); /* Adjust for toolbar height */
-}
-
-mat-card {
-  width: 300px;
-}
-
-mat-form-field {
-  width: 100%;
-  margin-bottom: 10px;
-}
-
-.login-container {
+.register-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,7 +6,7 @@ mat-form-field {
   background-color: #adadad;
 }
 
-.login-card {
+.register-card {
   width: 100%;
   max-width: 400px;
   padding: 20px;
@@ -42,21 +25,13 @@ button {
   color: red;
   margin-bottom: 10px;
 }
+
 a {
   display: block;
   text-align: center;
   margin-top: 10px;
   color: #9a9b9b;;
   text-decoration: none;
-
-  &:hover {
-    text-decoration: underline;
-  }
-}
-mat-hint a {
-  color: #9a9b9b;
-  text-decoration: none;
-  line-height: 1px;
 
   &:hover {
     text-decoration: underline;

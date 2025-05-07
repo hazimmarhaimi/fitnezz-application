@@ -12,10 +12,15 @@
         <mat-form-field appearance="fill">
           <mat-label>Password</mat-label>
           <input matInput type="password" [(ngModel)]="password" name="password" required>
+          <mat-hint><a routerLink="/forgotpassword" [ngStyle]="{'font-size': 14 + 'px'}">Forgot Password</a></mat-hint>
         </mat-form-field>
         <div class="error" *ngIf="errorMessage">{{errorMessage}}</div>
+        <mat-checkbox [(ngModel)]="rememberMe" name="rememberMe" [ngStyle]="{'padding-bottom': 10 + 'px'}">Remember Me</mat-checkbox>
         <button mat-raised-button color="primary" type="submit" [disabled]="!username || !password">Login</button>
       </form>
+      <mat-card-actions>
+        <a routerLink="/register">Don't have an account? Register</a>
+      </mat-card-actions>
     </mat-card-content>
   </mat-card>
 </div>

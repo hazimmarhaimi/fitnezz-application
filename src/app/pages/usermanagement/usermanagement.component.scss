@@ -1,6 +1,7 @@
 .container {
   padding: 20px;
-  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 h1 {
@@ -8,6 +9,22 @@ h1 {
 }
 
 mat-card {
-  max-width: 600px;
-  margin: 0 auto;
+  width: 100%;
+}
+
+mat-table {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+mat-header-cell, mat-cell {
+  padding: 10px;
+}
+
+mat-header-cell {
+  font-weight: bold;
+}
+
+mat-cell button {
+  margin-left: auto;
 }
