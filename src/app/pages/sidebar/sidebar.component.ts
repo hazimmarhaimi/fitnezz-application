@@ -4,8 +4,9 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { RouterModule } from '@angular/router';
+import { Router,RouterModule } from '@angular/router';
 import { NavigationComponent } from '..//navigation/navigation.component';
+import { AuthService } from '../../services/auth.service'; // Import AuthService
 
 @Component({
   selector: 'app-sidebar',
@@ -33,8 +34,13 @@ export class SidebarComponent {
     { name: 'Workouts', route: '/workouts', icon: 'fitness_center' },
     { name: 'Progress', route: '/progress', icon: 'trending_up' },
     { name: 'User Management', route: '/usermanagement', icon: 'manage_accounts' },
-    { name: 'Logout', route: '/login', icon: 'logout' }
+    { name: 'Logout', route: '/login', icon: 'logout', action: 'logout' }
   ];
+
+  constructor(
+    private router: Router,
+    private authService: AuthService // Injected AuthService
+  ) {}
 
   toggleSidebar() {
     this.isExpanded = !this.isExpanded;
@@ -60,5 +66,18 @@ export class SidebarComponent {
   @HostListener('document:mouseup')
   onMouseUp() {
     this.isResizing = false;
+  }
+
+  logout() {
+    this.authService.logout(); // Call AuthService to remove authToken
+    this.router.navigate(['/login']); // Navigate to login page
+  }
+
+  onNavItemClick(item: any) {
+    if (item.action === 'logout') {
+      this.logout();
+    } else if (item.route) {
+      this.router.navigate([item.route]);
+    }
   }
 }

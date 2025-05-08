@@ -24,6 +24,7 @@ export class DashboardComponent {
   constructor(private router: Router) {}
 
   logout() {
+    localStorage.removeItem('authToken'); // Clear token
     this.router.navigate(['/login']);
   }
 }
