@@ -7,16 +7,25 @@
       <form (ngSubmit)="onSubmit()">
         <mat-form-field appearance="fill">
           <mat-label>Username</mat-label>
-          <input matInput [(ngModel)]="username" name="username" required>
+          <input matInput [(ngModel)]="credentials.username" name="username" required>
         </mat-form-field>
         <mat-form-field appearance="fill">
           <mat-label>Password</mat-label>
-          <input matInput type="password" [(ngModel)]="password" name="password" required>
+          <input matInput type="password" [(ngModel)]="credentials.password" name="password" required>
           <mat-hint><a routerLink="/forgotpassword" [ngStyle]="{'font-size': 14 + 'px'}">Forgot Password</a></mat-hint>
         </mat-form-field>
-        <div class="error" *ngIf="errorMessage">{{errorMessage}}</div>
         <mat-checkbox [(ngModel)]="rememberMe" name="rememberMe" [ngStyle]="{'padding-bottom': 10 + 'px'}">Remember Me</mat-checkbox>
-        <button mat-raised-button color="primary" type="submit" [disabled]="!username || !password">Login</button>
+        <div class="login-button-container">
+          <button mat-raised-button [ngClass]="['login-success-button', isSuccess ? 'login-success-btn' : '']" color="primary" type="submit" [disabled]="isLoading || !credentials.username || !credentials.password">
+            <ng-container *ngIf="isLoading">
+              <mat-progress-spinner mode="indeterminate" diameter="20" color="primary"></mat-progress-spinner>
+            </ng-container>
+            <ng-container *ngIf="isSuccess">
+              <mat-icon>check_circle</mat-icon>
+            </ng-container>
+            <ng-container *ngIf="!isLoading && !isSuccess">Login</ng-container>
+          </button>
+        </div>
       </form>
       <mat-card-actions>
         <a routerLink="/register">Don't have an account? Register</a>

@@ -62,3 +62,41 @@ mat-hint a {
     text-decoration: underline;
   }
 }
+
+mat-checkbox {
+  margin-bottom: 20px;
+}
+
+.error-snackbar {
+  background-color: #f44336; // Red background for error
+  color: white;
+}
+
+.login-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+
+  button {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.3s ease;
+
+    mat-progress-spinner {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    mat-icon {
+      font-size: 24px;
+      color: green;
+    }
+  }
+}
+.login-success-btn {
+  background-color: #4CAF50 !important; /* green */
+  color: white;
+}
